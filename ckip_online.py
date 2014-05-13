@@ -6,8 +6,8 @@ def ckip_seg(text):
 
 	opener = urllib2.build_opener()
 	postdata = urllib.urlencode({
-		'query':text.decode('utf-8').encode('big5'),
-		'Submit':u'送出'.encode('big5')
+		'query':text.decode('utf-8').encode('cp950'),
+		'Submit':u'送出'.encode('cp950')
 		})
 
 	res = opener.open(url_tar, postdata).read()
