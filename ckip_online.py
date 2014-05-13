@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*-
 import urllib, urllib2, re
 
-def ckip_seg(text):
+def ckipSeg(text):
 	url_tar = 'http://sunlight.iis.sinica.edu.tw/cgi-bin/text.cgi'
 
 	opener = urllib2.build_opener()
