@@ -1,12 +1,19 @@
 #-*-coding:utf-8-*-
 import urllib, urllib2, re
 
-def ckipSeg(text):
+def seg(text):
+	if not isinstance(text, unicode):
+		try:
+			text = text.decode('utf-8')
+		except:
+			raise UnicodeError('Input encoding should be UTF8 or UNICODE')
+	text = text.encode('cp950')
+
 	url_tar = 'http://sunlight.iis.sinica.edu.tw/cgi-bin/text.cgi'
 
 	opener = urllib2.build_opener()
 	postdata = urllib.urlencode({
-		'query':text.decode('utf-8').encode('cp950'),
+		'query':text,
 		'Submit':u'送出'.encode('cp950')
 		})
 
