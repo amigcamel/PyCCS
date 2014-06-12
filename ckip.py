@@ -98,13 +98,18 @@ class Segres(object):
 
 		self.raw = fin
 
-	def text(self):
+	def text(self, mode='plain'):
 		output = ''
 		for word, pos in self.raw:
 			if pos == 'LINEBREAK':
 				output += word
 			else:
-				output += '%s/%s ' % (word, pos)
+				if mode == 'plain':
+					output += '%s/%s ' % (word, pos)
+				elif mode == 'html':
+					output += '%s<span>/%s</span> ' % (word, pos)
+				else:
+					raise ValueError('Mode name error: %s' % mode)
 		return output
 
 
