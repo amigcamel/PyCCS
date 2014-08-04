@@ -42,7 +42,8 @@ def seg(text):
     con = []
     for i in seg_fin:
         o = seg_fin_pat.search(i)
-        con.append((o.group(1), o.group(2)))
+        if o != None: # need to find out why None appears!
+            con.append((o.group(1), o.group(2)))
     output = Segres(con)
     return output
 
@@ -50,7 +51,6 @@ def hack(text):
     text = re.sub('\r\n|\n', '__n__', text)
     text = text.replace('<', '__<__')
     text = text.replace('>', '__>__')
-
     return text
 
 def num_patch(string):
