@@ -91,9 +91,16 @@ class Segres(object):
                 pos = 'LINEBREAK'
             else:
                 pat = re.search('(.*)/(\w+)$', i)
-                word = pat.group(1)
+                print i, pat
+                try: # need to check
+                    word = pat.group(1)
+                except:
+                    word = i
                 word = num_patch(word)
-                pos = pat.group(2)
+                try:
+                    pos = pat.group(2)
+                except:
+                    pos = 'None'
             fin.append((word, pos))
 
         self.raw = fin
