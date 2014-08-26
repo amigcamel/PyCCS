@@ -91,7 +91,7 @@ class Segres(object):
                 pos = 'LINEBREAK'
             else:
                 pat = re.search('(.*)/(\w+)$', i)
-                print i, pat
+                #print i, pat
                 try: # need to check
                     word = pat.group(1)
                 except:
